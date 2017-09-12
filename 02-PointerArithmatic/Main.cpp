@@ -6,13 +6,25 @@ using std::cout;
 int main()
 {
 	//Pointer Arithmatic
-	//int a = 1;
-	//int b = 2;
+	int a = 0;
+	int b = 1;
 
-	//int * notA = &a;
+	struct
+	{
+		int a;
+		int b;
+	} thing;
 
-	//cout << a << std::endl;
-	//cout << *(notA+1) << std::endl;
+	thing.a = 2;
+	thing.b = 3;
+
+	cout << thing.a << "\n";
+	cout << thing.b << "\n";
+
+	std::cout << *((&thing.a) + 1) << std::endl;//you can kind pretend structs are arrays
+
+
+
 
 
 
@@ -92,8 +104,8 @@ int main()
 		cout << *(inty + i) << "\n";
 	}
 
-	char * phrase = "Guy Sensei";
-	cstrReversal(phrase, 50);
+	//char * phrase = "GuySensei";
+	//cstrReversal(phrase, 10);
 
 	delete[] inty;
 	delete[] arrLarge;

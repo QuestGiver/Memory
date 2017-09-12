@@ -1,5 +1,6 @@
 #include "Helper.h"
 #include<iostream>
+#include<cstring>
 using std::cout;
 void printFloats(float * arr, int size)
 {
@@ -91,15 +92,26 @@ int arrReversal(int * arr, int size)
 
 void cstrReversal(char * arr, int size)
 {
-	for (int i = 0; i < size/2; i++)
+	//
+	//you can manually determine the null break character.
+	int len = 0;
+	for (int i = 0; i < size; i++)
 	{
-		char temp = *(arr + i);
-
-		//cancel if the back value is the null terminating characters
-		if (*(arr + size - 1 -i) == '\0')
+		if (*(arr + i) == '\0')
 		{
-
+			break;
 		}
+		len++;
+	}
+	//or
+	//len = strlen(arr);
+	
+
+	for (int i = 0; i < len/2; i++)
+	{
+		int temp = *(arr + i);
+		*(arr + i) = *(arr + len - 1 - i);
+		*(arr + len - 1 - i) = temp;
 	}
 }
 

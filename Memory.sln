@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HeapStack-1", "HeapStack-1\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02-PointerArithmatic", "02-PointerArithmatic\02-PointerArithmatic.vcxproj", "{C623F41C-48B1-41E6-BC05-584FDC425478}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "03-References", "03-References\03-References.vcxproj", "{FCB709D2-7CA7-4121-8E39-26519AAB6EDB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{C623F41C-48B1-41E6-BC05-584FDC425478}.Release|x64.Build.0 = Release|x64
 		{C623F41C-48B1-41E6-BC05-584FDC425478}.Release|x86.ActiveCfg = Release|Win32
 		{C623F41C-48B1-41E6-BC05-584FDC425478}.Release|x86.Build.0 = Release|Win32
+		{FCB709D2-7CA7-4121-8E39-26519AAB6EDB}.Debug|x64.ActiveCfg = Debug|x64
+		{FCB709D2-7CA7-4121-8E39-26519AAB6EDB}.Debug|x64.Build.0 = Debug|x64
+		{FCB709D2-7CA7-4121-8E39-26519AAB6EDB}.Debug|x86.ActiveCfg = Debug|Win32
+		{FCB709D2-7CA7-4121-8E39-26519AAB6EDB}.Debug|x86.Build.0 = Debug|Win32
+		{FCB709D2-7CA7-4121-8E39-26519AAB6EDB}.Release|x64.ActiveCfg = Release|x64
+		{FCB709D2-7CA7-4121-8E39-26519AAB6EDB}.Release|x64.Build.0 = Release|x64
+		{FCB709D2-7CA7-4121-8E39-26519AAB6EDB}.Release|x86.ActiveCfg = Release|Win32
+		{FCB709D2-7CA7-4121-8E39-26519AAB6EDB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
