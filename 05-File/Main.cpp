@@ -3,6 +3,7 @@
 #include <string>
 #include<conio.h>
 #include<random>
+#include"Entity.h"
 #include<time.h>
 using std::string;
 
@@ -22,7 +23,7 @@ int main()
 	//	return -1;
 	//}
 	////Reading from a File
-	//string buffer;//you need to have a nice buffer so that anything from the file can be ported over, stored and read by the concole.
+	//string buffer;//you need to have a nice buffer so that anything from the file can be ported over, stored and read by the console.
 	//while (std::getline(file, buffer))
 	//{
 	//	//print the line
@@ -58,7 +59,7 @@ int main()
 
 
 
-
+	////Digital Printer
 	//fstream Selection;
 
 	//std::cout << "What file would you like to open?\n";
@@ -66,7 +67,7 @@ int main()
 	//string menuItem;
 	//std::cin >> menuItem;
 
-	//Selection.open(menuItem);
+	//Selection.open(menuItem);//Remember to close files.
 
 	//if (Selection.fail())
 	//{
@@ -82,10 +83,45 @@ int main()
 
 
 	//Selection.clear();//reset error flags
+	//Selection.close();
 
 	//Selection.seekp(0, std::ios_base::end); //move my cursor to the end
 	//system("pause");
 
+
+	//My Information
+
+	//std::string inputBuffer;
+
+	//std::cout << "Where would you like to save this?" << std::endl;
+	//std::cin >> inputBuffer;
+
+	//std::fstream profileData;
+	//profileData.open(inputBuffer.c_str(), std::ios_base::out);
+
+	//if (profileData.fail())
+	//{
+	//	std::cout << "Sorry, it seems we cant save data here.";
+	//	return;
+	//}
+
+
+	////cin.ignor(1000, '\n');
+	//std::cout << "WHo are you?" << std::endl;
+	//getline(std::cin, inputBuffer);	
+	//profileData << inputBuffer << "\n";
+
+	//std::cout << "How old are you?" << std::endl;
+	//getline(std::cin, inputBuffer);	
+	//profileData << inputBuffer << "\n";
+
+	//std::cout << "What's your favorite color?" << std::endl;
+	//getline(std::cin, inputBuffer);
+	//profileData << inputBuffer << "\n";
+
+	//std::cout << "Thanks for feeding the google machine." << std::endl;
+	//profileData.flush();
+	//profileData.close();
 
 	//Open-------------------------------------------------------------------
 
@@ -123,14 +159,68 @@ int main()
 
 	//importantFile.close();
 
-	fstream sepValues;
+	////////fstream sepValues;
 
-	int arr[4] = { 0 };
+	////////int arr[4] = { 0 };
 
+	fstream entityStream;
+	entityStream.open("monsters.txt");
 
+	if (entityStream.fail())
+	{
+		std::cout << "CAN'T OPEN FILE" << std::endl;
+	}
 
+	int enitycount = 0;
+	entity entities[100];
 
+	while (true)
+	{
+		std::string buf;
+		bool entityFound = false;
+		//seek to the next entity
+		while (getline(entityStream, buf))
+		{
+			if (buf[0] == '@')
+			{
+				entityFound = true;
+				break;
+			}
+		}
 
+		if (!entityFound)
+		{
+			break;
+		}
+		//load data into the array of entities
+		entity& curEntity = entities[enitycount];
+		getline(entityStream, buf);
+		curEntity.hitpoints = stof(buf);
+
+		getline(entityStream, buf);
+		curEntity.armor = stof(buf);
+
+		getline(entityStream, buf);
+		curEntity.strength = stof(buf);
+
+		getline(entityStream, buf);
+		curEntity.defense = stof(buf);
+
+		getline(entityStream, buf);
+		curEntity.agility = stof(buf);
+
+		getline(entityStream, buf);
+		curEntity.luck = stof(buf);
+
+		enitycount++;
+		//exit if no entity is found
+		if (enitycount >= 100)
+		{
+			break;
+		}
+	}
+
+	
 
 
 	while (true)
