@@ -13,48 +13,48 @@ using std::fstream;//select what we know we'll use
 
 int main()
 {
-	//fstream file;
+	fstream file;
 
-	//file.open("text.txt");
+	file.open("text.txt");
 
-	//if (file.fail())
-	//{
-	//	std::cout << "File not found" << std::endl;
-	//	return -1;
-	//}
-	////Reading from a File
-	//string buffer;//you need to have a nice buffer so that anything from the file can be ported over, stored and read by the console.
-	//while (std::getline(file, buffer))
-	//{
-	//	//print the line
-	//	std::cout << buffer << std::endl;
-	//}
+	if (file.fail())
+	{
+		std::cout << "File not found" << std::endl;
+		return -1;
+	}
+	//Reading from a File
+	string buffer;//you need to have a nice buffer so that anything from the file can be ported over, stored and read by the console.
+	while (std::getline(file, buffer))
+	{
+		//print the line
+		std::cout << buffer << std::endl;
+	}
 
-	//file.clear();//reset error flags
+	file.clear();//reset error flags
 
-	//file.seekp(0, std::ios_base::end); //move my cursor to the end
+	file.seekp(0, std::ios_base::end); //move my cursor to the end
 
-	////write a msg to the file
-	//file << std::endl << "Today is always the present";
+	//write a msg to the file
+	file << std::endl << "Today is always the present";
 
-	//file.flush(); //Write down everything left in the exe buffer
+	file.flush(); //Write down everything left in the exe buffer
 
-	//file.close();//dont forget to close the file.
+	file.close();//dont forget to close the file.
 
-	////lets make another thingy
+	//lets make another thingy
 
-	//fstream autoCreate;
+	fstream autoCreate;
 
 	//code autogens a file----------------------------------------------------------------------------------
-	//autoCreate.open("createme.txt", std::ios::out);
+	autoCreate.open("createme.txt", std::ios::out);
 
-	//if (autoCreate.fail())
-	//{
-	//	std::cout << "SOmething went wrong." << std::endl;
-	//	return -1;
-	//}
+	if (autoCreate.fail())
+	{
+		std::cout << "SOmething went wrong." << std::endl;
+		return -1;
+	}
 
-	//autoCreate.close();
+	autoCreate.close();
 	////closed-----------------------------------------------------------------------------------------------------
 
 
@@ -194,7 +194,7 @@ int main()
 		}
 		//load data into the array of entities
 		entity& curEntity = entities[enitycount];
-		getline(entityStream, buf);
+		getline(entityStream, buf);//automatically checks and moves the search one line down.
 		curEntity.hitpoints = stof(buf);
 
 		getline(entityStream, buf);

@@ -21,7 +21,7 @@ int main()
 	cout << thing.a << "\n";
 	cout << thing.b << "\n";
 
-	std::cout << *((&thing.a) + 1) << std::endl;//you can kind pretend structs are arrays
+	std::cout << *((&thing.a) + 1) << std::endl;//you can kindof pretend structs are arrays
 
 
 
